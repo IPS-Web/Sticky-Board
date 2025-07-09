@@ -1,0 +1,348 @@
+/* Estilos para el corcho */
+.board-cozy {
+  background: #fffbe7;
+  border: 2px solid #ffe082;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #ffe08255;
+  padding: 24px 12px 32px 12px;
+  margin-bottom: 30px;
+  transition: background 0.3s;
+}
+
+.board-informal {
+  background: #f0f7fa;
+  border: 2px dashed #90caf9;
+  border-radius: 12px 32px 12px 32px;
+  box-shadow: 0 2px 16px #90caf955;
+  padding: 24px 12px 32px 12px;
+  margin-bottom: 30px;
+  transition: background 0.3s;
+}
+
+.board-formal {
+  background: #f5f5f5;
+  border: 2px solid #bdbdbd;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px #bdbdbd55;
+  padding: 24px 12px 32px 12px;
+  margin-bottom: 30px;
+  transition: background 0.3s;
+}
+
+.board-minimal {
+  background: #ffffff;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 24px 12px 32px 12px;
+  margin-bottom: 30px;
+  transition: background 0.3s;
+}
+
+/* Estilos para las notas */
+.note-cozy {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  box-shadow: 2px 2px 8px #ffe08299;
+  border-radius: 12px;
+  border: 1.5px solid #ffe082;
+}
+
+.note-informal {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  box-shadow: 2px 4px 12px #90caf999;
+  border-radius: 18px 6px 18px 6px;
+  border: 2px dashed #90caf9;
+  transform: rotate(-2deg);
+}
+
+.note-formal {
+  font-family: 'Roboto', 'Arial', sans-serif;
+  box-shadow: 1px 1px 4px #bdbdbd99;
+  border-radius: 4px;
+  border: 1.5px solid #bdbdbd;
+}
+
+.note-minimal {
+  font-family: 'Arial', sans-serif;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+}
+
+/* Corcho marrón centrado y grande */
+.board-marron {
+  background: #a97c50;
+  border: 4px solid #7b5a36;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px #7b5a3644;
+  width: 80vw;
+  height: 70vh;
+  margin: 40px auto 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Nota base arrastrable */
+.base-note {
+  background: #fffbe7;
+  border: 2px dashed #ffe082;
+  border-radius: 12px;
+  width: 180px;
+  min-height: 120px;
+  margin: 0 auto 24px auto;
+  box-shadow: 2px 2px 8px #ffe08299;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  opacity: 0.8;
+  transition: box-shadow 0.2s, opacity 0.2s;
+}
+.base-note:active {
+  opacity: 1;
+  box-shadow: 4px 4px 16px #ffe082cc;
+}
+
+/* Notas autoajustables */
+.note textarea {
+  min-height: 40px;
+  max-height: 400px;
+  overflow: hidden;
+  transition: height 0.2s;
+}
+
+/* Ajuste para que las notas no tengan scroll y crezcan con el texto */
+.note {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Selector de color oculto por defecto y visible al hacer hover */
+.note .color-selector {
+  display: none;
+  justify-content: center;
+  margin-top: 6px;
+  gap: 4px;
+}
+.note:hover .color-selector {
+  display: flex;
+}
+
+.color-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px #0002;
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  padding: 0;
+}
+.color-circle.selected {
+  border: 2.5px solid #333;
+  box-shadow: 0 0 0 2px #3332;
+}
+
+/* Estilo para indicar que una nota está siendo arrastrada */
+.note.dragging {
+  opacity: 0.7;
+  box-shadow: 0 0 16px #0005;
+  z-index: 9999;
+}
+
+.trash-bin {
+  opacity: 0.85;
+  border: 2.5px solid #a1887f;
+  box-shadow: 0 2px 8px #0003;
+  transition: background 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+.trash-bin.over {
+  background: #d32f2f !important;
+  border-color: #b71c1c;
+  box-shadow: 0 4px 16px #d32f2f55;
+  opacity: 1;
+}
+
+/* Estilos de corcho por modo */
+.board-estilo-original {
+  /* El marrón clásico */
+}
+.board-estilo-suave {
+  background: #e0c9a6 !important;
+  border-color: #bfa074 !important;
+}
+.board-estilo-cozy {
+  background: #fffbe7 !important;
+  border-color: #ffe082 !important;
+}
+.board-estilo-formal {
+  background: #f5f5f5 !important;
+  border-color: #bdbdbd !important;
+}
+.board-estilo-informal {
+  background: #f0f7fa !important;
+  border-color: #90caf9 !important;
+}
+
+/* Modo noche para el corcho */
+.board-noche {
+  background: #3a2c23 !important;
+  border-color: #5d4037 !important;
+  box-shadow: 0 8px 32px #000a !important;
+}
+
+/* Fondo modo noche */
+.fondo-noche {
+  background: #2d2320 !important;
+  transition: background 0.3s;
+}
+
+/* Toggle modo noche/día */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+.switch input { display: none; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #ccc;
+  border-radius: 20px;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background: #fff;
+  border-radius: 50%;
+  transition: .4s;
+}
+input:checked + .slider {
+  background: #795548;
+}
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+body, html {
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden !important;
+}
+
+.fondo-dia-marron {
+  background: #e7dac6 !important;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fondo-noche-estrellado {
+  background: #2d2320 !important;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.fondo-noche-estrellado::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(white 1px, transparent 1px) 0 0,
+    radial-gradient(white 1px, transparent 1px) 20px 20px,
+    radial-gradient(white 0.7px, transparent 1px) 10px 30px,
+    radial-gradient(white 1.2px, transparent 1.2px) 50px 80px;
+  background-size: 60px 60px;
+  opacity: 0.18;
+  filter: blur(0.2px);
+}
+
+/* Estilos de corcho por modo día */
+.board-estilo-original {
+  /* El marrón clásico */
+}
+.board-estilo-suave {
+  background: #e0c9a6 !important;
+  border-color: #bfa074 !important;
+}
+.board-estilo-cozy {
+  background: #fffbe7 !important;
+  border-color: #ffe082 !important;
+}
+.board-estilo-formal {
+  background: #f5f5f5 !important;
+  border-color: #bdbdbd !important;
+}
+.board-estilo-informal {
+  background: #f0f7fa !important;
+  border-color: #90caf9 !important;
+}
+
+/* Estilos de corcho por modo noche */
+.board-noche.board-estilo-original {
+  background: #3a2c23 !important;
+  border-color: #5d4037 !important;
+}
+.board-noche.board-estilo-suave {
+  background: #5d4037 !important;
+  border-color: #a1887f !important;
+}
+.board-noche.board-estilo-cozy {
+  background: #4e3a2a !important;
+  border-color: #ffe082 !important;
+}
+.board-noche.board-estilo-formal {
+  background: #2d2320 !important;
+  border-color: #bdbdbd !important;
+}
+.board-noche.board-estilo-informal {
+  background: #2d3a40 !important;
+  border-color: #90caf9 !important;
+}
+
+/* Selector de estilos adaptado a modo noche */
+.select-estilo {
+  border: none;
+  background: transparent;
+  font-size: 1em;
+  outline: none;
+  color: inherit;
+  font-weight: 600;
+}
+.select-estilo.noche {
+  background: #3a2c23 !important;
+  color: #ffe0b2 !important;
+  border-radius: 8px;
+}
+.select-estilo.noche option {
+  background: #3a2c23 !important;
+  color: #ffe0b2 !important;
+}
+.select-estilo.dia option {
+  background: #fffbe7 !important;
+  color: #795548 !important;
+}
+
+/* Ajustes para selector y toggle (ya están en línea, pero aquí puedes personalizar más si quieres) */ 
